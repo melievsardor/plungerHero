@@ -33,6 +33,9 @@ public class CrossbowController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.IsPlay)
+            return;
+
 
         if(Input.GetMouseButtonDown(0))
         {

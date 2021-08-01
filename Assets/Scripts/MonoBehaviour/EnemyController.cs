@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
 
     private Animator animator;
 
+    private bool isDeath = false;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -22,6 +24,9 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (isDeath || !GameManager.Instance.IsPlay)
+            return;
+
         transform.Translate(Vector3.forward * Time.deltaTime * 1 / speed );
     }
 

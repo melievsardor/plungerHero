@@ -20,11 +20,6 @@ public class EnemyBone : MonoBehaviour
         controller = GetComponentInParent<EnemyController>();
     }
 
-    private void Update()
-    {
-        
-    }
-
     public void SetAnimationHit()
     {
         controller.SetAnimation("hit");
@@ -40,11 +35,7 @@ public class EnemyBone : MonoBehaviour
         {
             neighbor.transform.parent = boneParent;
             neighbor.isKinematic = false;
-
-           
         }
-
-       // Destroy(gameObject, 3f);
     }
 
 
