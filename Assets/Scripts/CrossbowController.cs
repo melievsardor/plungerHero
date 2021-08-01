@@ -5,6 +5,9 @@ using UnityEngine;
 public class CrossbowController : MonoBehaviour
 {
     [SerializeField]
+    private Transform plungerParentTransform;
+
+    [SerializeField]
     private Transform plungerTransform = null;
 
     [SerializeField]
@@ -19,59 +22,110 @@ public class CrossbowController : MonoBehaviour
     private float downPositionY;
 
     private bool isPlungerTarget;
+    private bool isDown;
+
+
 
     private void Start()
     {
-        obiEndTransform.localPosition = new Vector3(1f, 0f, 0f);
+        obiEndTransform.localPosition = new Vector3(-1f, 0f, 0f);
     }
 
     private void Update()
     {
-        
+
         if(Input.GetMouseButtonDown(0))
         {
             downPositionY = Input.mousePosition.y;
 
-            if (!isPlungerTarget)
+            isDown = true;
+        }
+
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit raycastHit;
+
+        if (Physics.Raycast(ray, out raycastHit, layerMask))
+        {
+            //raycastHit.rigidbody.isKinematic = false;
+
+            if(!isPlungerTarget)
             {
-                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-                if (Physics.Raycast(ray, out RaycastHit raycastHit, layerMask))
+                if (isDown)
                 {
-                    var temp = raycastHit.point;
+                    plungerTransform.parent = raycastHit.transform;
 
-                    Animator animator = raycastHit.transform.GetComponentInParent<Animator>();
+                    var bone = plungerTransform.parent.GetComponent<EnemyBone>();
 
-                    if(animator != null)
-                    {
-                        animator.StopPlayback();
-                    }
+                    if(bone != null)
+                        bone.SetAnimationHit();
 
-                    temp.x = -temp.x;
-                    temp.z = -temp.z;
-                    plungerTransform.localPosition = temp;
-
+                    plungerTransform.localPosition = new Vector3(0f, 0f, 0.5f);
                     isPlungerTarget = true;
                 }
             }
+            
 
         }
 
-
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             if (!isPlungerTarget)
                 return;
 
             float upPositionY = Input.mousePosition.y;
 
-            if(downPositionY - upPositionY >= 100f)
+            if (downPositionY - upPositionY >= 100f)
             {
+
+                var eneyBone = plungerTransform.parent.GetComponent<EnemyBone>();
+
+                if (eneyBone != null)
+                    eneyBone.SetScattter();
+
+                plungerTransform.parent = plungerParentTransform;
+
                 plungerTransform.localPosition = Vector3.zero;
+
+                plungerTransform.localEulerAngles = Vector3.zero;
+
                 isPlungerTarget = false;
+                isDown = false;
             }
             Debug.Log(downPositionY + " | " + upPositionY);
         }
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    downPositionY = Input.mousePosition.y;
+
+        //    if (!isPlungerTarget)
+        //    {
+        //        //Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        //        if (Physics.Raycast(ray, out raycastHit, layerMask))
+        //        {
+        //            var temp = raycastHit.point;
+
+        //            Animator animator = raycastHit.transform.GetComponentInParent<Animator>();
+
+        //            if(animator != null)
+        //            {
+        //                animator.StopPlayback();
+        //            }
+
+        //            temp.x = -temp.x;
+        //            temp.z = -temp.z;
+        //            plungerTransform.localPosition = temp;
+
+        //            isPlungerTarget = true;
+        //        }
+        //    }
+
+        //}
+
+
+
 
     }
 

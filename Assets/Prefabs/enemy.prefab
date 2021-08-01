@@ -385,6 +385,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1463914969625187952}
+  - component: {fileID: 535522161570648427}
+  - component: {fileID: 5048984535235673257}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -401,12 +403,43 @@ Transform:
   m_GameObject: {fileID: 2241400925762784458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 6341222362023507684}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &535522161570648427
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241400925762784458}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56f0c12e4974c4a2f8beec193d3a8616, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5048984535235673257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241400925762784458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bd60239142c4987ac572d9e81a5e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2380997660108411148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,8 +1283,8 @@ Transform:
   m_LocalPosition: {x: 0.06620178, y: -0.08816849, z: -0.0044718278}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3972172082067242287}
   - {fileID: 6906477142083223361}
+  - {fileID: 3972172082067242287}
   - {fileID: 5997223319908431748}
   m_Father: {fileID: 6341222362023507684}
   m_RootOrder: 2
@@ -1318,7 +1351,7 @@ Transform:
   - {fileID: 1993782911559342055}
   - {fileID: 3205581627895775740}
   m_Father: {fileID: 7099113348512285147}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5934968303169219620
 GameObject:
@@ -2074,6 +2107,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6906477142083223361}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 7058574822541162967}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 4627043300892612199}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 7907711128433953473}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2132,13 +2181,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (1)
+      value: leg2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &990533238401658444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 34417149025976215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7058574822541162967 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 34417149025976215}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &561516193466221618
@@ -2148,6 +2202,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3485240188192133016}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: boneName
+      value: crawl
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 7369496826365608562}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 6188759656673310610}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 2246088039634346879}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 4937759832307182996}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2206,13 +2284,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (4)
+      value: leg1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &725003180854023657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 561516193466221618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7369496826365608562 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 561516193466221618}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &878917770064858241
@@ -2222,6 +2305,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1993782911559342055}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 7907711128433953473}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2280,13 +2371,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere
+      value: leg4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &141821072625671514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 878917770064858241}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7907711128433953473 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 878917770064858241}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &880007758849278871
@@ -2296,6 +2392,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3485240188192133016}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: boneName
+      value: crawl
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 7906408023768663511}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 7369496826365608562}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 6188759656673310610}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 2246088039634346879}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[4]
+      value: 
+      objectReference: {fileID: 4937759832307182996}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2354,10 +2478,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (3)
+      value: leg0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
+--- !u!54 &7906408023768663511 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 880007758849278871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &140518588522336844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
@@ -2370,6 +2499,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8434441655171256162}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 7958853278240178759}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 1183645708720885015}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2428,13 +2569,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (2)
+      value: arm3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &160311268287485404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 1152033864911062023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7958853278240178759 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 1152033864911062023}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1389519138574598619
@@ -2444,6 +2590,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8434441655171256162}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 8270805854514808731}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 7958853278240178759}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 1183645708720885015}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2502,13 +2664,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (1)
+      value: arm2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &2201629952399544320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 1389519138574598619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8270805854514808731 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 1389519138574598619}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1491158011032605581
@@ -2518,6 +2685,102 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4772773404135113971}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: boneName
+      value: dying
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 8448460562863003085}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 3520835739155436082}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 8540235849567819847}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 9169434462293094411}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[4]
+      value: 
+      objectReference: {fileID: 5861570360932074583}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[5]
+      value: 
+      objectReference: {fileID: 9111428448066855454}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[6]
+      value: 
+      objectReference: {fileID: 1853742030240994236}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[7]
+      value: 
+      objectReference: {fileID: 1965944840318951622}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[8]
+      value: 
+      objectReference: {fileID: 7958853278240178759}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[9]
+      value: 
+      objectReference: {fileID: 8270805854514808731}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[10]
+      value: 
+      objectReference: {fileID: 6581432146431732404}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[11]
+      value: 
+      objectReference: {fileID: 4571265814764036127}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[12]
+      value: 
+      objectReference: {fileID: 7058574822541162967}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[13]
+      value: 
+      objectReference: {fileID: 7907711128433953473}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[14]
+      value: 
+      objectReference: {fileID: 4627043300892612199}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[15]
+      value: 
+      objectReference: {fileID: 7369496826365608562}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[16]
+      value: 
+      objectReference: {fileID: 7906408023768663511}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[17]
+      value: 
+      objectReference: {fileID: 2246088039634346879}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[18]
+      value: 
+      objectReference: {fileID: 6188759656673310610}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[19]
+      value: 
+      objectReference: {fileID: 4937759832307182996}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[20]
+      value: 
+      objectReference: {fileID: 1183645708720885015}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[21]
+      value: 
+      objectReference: {fileID: 2925172198405357302}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2576,10 +2839,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere
+      value: head
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
+--- !u!54 &8448460562863003085 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 1491158011032605581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1834366663662338646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
@@ -2592,6 +2860,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4656683920441372318}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 8540235849567819847}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 9169434462293094411}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 5861570360932074583}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 9111428448066855454}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[4]
+      value: 
+      objectReference: {fileID: 2925172198405357302}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2650,10 +2942,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (1)
+      value: arm0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
+--- !u!54 &8540235849567819847 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 1660241736145886727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1931779934510567388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
@@ -2666,6 +2963,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4656683920441372318}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 9169434462293094411}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 5861570360932074583}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 9111428448066855454}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 2925172198405357302}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2724,13 +3041,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (2)
+      value: arm1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &1372028692381132688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 2220061715033192011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &9169434462293094411 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 2220061715033192011}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2305022463909749854
@@ -2740,6 +3062,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3479375394786755635}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 9111428448066855454}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 2925172198405357302}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2798,13 +3132,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (3)
+      value: arm3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &1312877607562835333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 2305022463909749854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &9111428448066855454 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 2305022463909749854}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2430203324315013159
@@ -2814,6 +3153,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6906477142083223361}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 4627043300892612199}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 7907711128433953473}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2872,13 +3223,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (2)
+      value: leg3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &3205581627895775740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 2430203324315013159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &4627043300892612199 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 2430203324315013159}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2668712865524329428
@@ -2888,6 +3244,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3693785299768438698}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 4937759832307182996}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2946,13 +3310,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (5)
+      value: leg4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &2939864001442331151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 2668712865524329428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &4937759832307182996 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 2668712865524329428}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3519322857825600023
@@ -2962,6 +3331,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3479375394786755635}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 5861570360932074583}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 9111428448066855454}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 2925172198405357302}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3020,13 +3405,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (2)
+      value: arm2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &4400711674515002316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 3519322857825600023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5861570360932074583 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 3519322857825600023}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3777880513240166866
@@ -3036,6 +3426,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8134843503057246022}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 6188759656673310610}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 2246088039634346879}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 4937759832307182996}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3094,13 +3500,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (4)
+      value: leg2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &4154826576362921993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 3777880513240166866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6188759656673310610 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 3777880513240166866}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4240895492007750900
@@ -3110,9 +3521,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7099113348512285147}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: boneName
+      value: crawl
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 6581432146431732404}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 4571265814764036127}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 7058574822541162967}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 7907711128433953473}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[4]
+      value: 
+      objectReference: {fileID: 4627043300892612199}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_LocalScale.x
@@ -3168,13 +3607,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (2)
+      value: leg0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &3972172082067242287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 4240895492007750900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6581432146431732404 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 4240895492007750900}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5266698956666550454
@@ -3184,6 +3628,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 752043274196504147}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 2925172198405357302}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3242,10 +3694,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (1)
+      value: arm4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
+--- !u!54 &2925172198405357302 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 5266698956666550454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4959096789819828589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
@@ -3258,6 +3715,102 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6341222362023507684}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: boneName
+      value: dying
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 3520835739155436082}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 8448460562863003085}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 1853742030240994236}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 1965944840318951622}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[4]
+      value: 
+      objectReference: {fileID: 7958853278240178759}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[5]
+      value: 
+      objectReference: {fileID: 8270805854514808731}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[6]
+      value: 
+      objectReference: {fileID: 9169434462293094411}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[7]
+      value: 
+      objectReference: {fileID: 8540235849567819847}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[8]
+      value: 
+      objectReference: {fileID: 9111428448066855454}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[9]
+      value: 
+      objectReference: {fileID: 5861570360932074583}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[10]
+      value: 
+      objectReference: {fileID: 4571265814764036127}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[11]
+      value: 
+      objectReference: {fileID: 4627043300892612199}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[12]
+      value: 
+      objectReference: {fileID: 7907711128433953473}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[13]
+      value: 
+      objectReference: {fileID: 7058574822541162967}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[14]
+      value: 
+      objectReference: {fileID: 6581432146431732404}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[15]
+      value: 
+      objectReference: {fileID: 7369496826365608562}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[16]
+      value: 
+      objectReference: {fileID: 7906408023768663511}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[17]
+      value: 
+      objectReference: {fileID: 2246088039634346879}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[18]
+      value: 
+      objectReference: {fileID: 6188759656673310610}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[19]
+      value: 
+      objectReference: {fileID: 4937759832307182996}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[20]
+      value: 
+      objectReference: {fileID: 1183645708720885015}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[21]
+      value: 
+      objectReference: {fileID: 2925172198405357302}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3316,13 +3869,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (1)
+      value: body
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &6671671283176768937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 5860268481816499314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3520835739155436082 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 5860268481816499314}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6845251910126970463
@@ -3332,6 +3890,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7099113348512285147}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: boneName
+      value: crawl
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 4571265814764036127}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 7058574822541162967}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 4627043300892612199}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 7907711128433953473}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3390,13 +3972,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (3)
+      value: leg1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &5997223319908431748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 6845251910126970463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &4571265814764036127 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 6845251910126970463}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8206255413804550999
@@ -3406,6 +3993,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5324947193218278488}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 1183645708720885015}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3464,10 +4059,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (1)
+      value: arm4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
+--- !u!54 &1183645708720885015 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 8206255413804550999}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8946166860995910284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
@@ -3480,6 +4080,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4866085985525097123}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 1853742030240994236}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 8270805854514808731}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 7958853278240178759}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 1183645708720885015}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3538,10 +4158,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (1)
+      value: arm1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
+--- !u!54 &1853742030240994236 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 8662268025253320188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8499379167908381735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
@@ -3554,6 +4179,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4866085985525097123}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 1965944840318951622}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 1853742030240994236}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 8270805854514808731}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 7958853278240178759}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[4]
+      value: 
+      objectReference: {fileID: 1183645708720885015}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3612,13 +4261,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere
+      value: arm0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &8575553765015828317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 8847090825221514886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1965944840318951622 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 8847090825221514886}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9125677655174391103
@@ -3628,6 +4282,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8134843503057246022}
     m_Modifications:
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 2246088039634346879}
+    - target: {fileID: 365601524163225838, guid: e8caf87690bc7470497271689b9478be, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 4937759832307182996}
     - target: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3686,12 +4352,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912556104093402719, guid: e8caf87690bc7470497271689b9478be, type: 3}
       propertyPath: m_Name
-      value: Sphere (5)
+      value: leg3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8caf87690bc7470497271689b9478be, type: 3}
 --- !u!4 &8314130860758119652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992290060612800987, guid: e8caf87690bc7470497271689b9478be, type: 3}
+  m_PrefabInstance: {fileID: 9125677655174391103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2246088039634346879 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7029941248618858048, guid: e8caf87690bc7470497271689b9478be, type: 3}
   m_PrefabInstance: {fileID: 9125677655174391103}
   m_PrefabAsset: {fileID: 0}

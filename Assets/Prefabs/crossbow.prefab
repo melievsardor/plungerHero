@@ -50,7 +50,7 @@ BoxCollider:
   m_GameObject: {fileID: 11813904}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -466,8 +466,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bef2058b70b4244997f97e169060ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plungerParentTransform: {fileID: 0}
   plungerTransform: {fileID: 6167387343423436720}
   obiEndTransform: {fileID: 11813905}
+  mainCamera: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &3302443488831040236
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solvers:
   - {fileID: 6727986271617928719}
-  substeps: 3
+  substeps: 60
 --- !u!1 &6400517718059213764
 GameObject:
   m_ObjectHideFlags: 0
