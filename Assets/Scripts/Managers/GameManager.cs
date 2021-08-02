@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
 
+    private List<IStateUpdate> stateUpdates = new List<IStateUpdate>();
 
     private bool isPlay;
     public bool IsPlay { get { return isPlay; } set { isPlay = value; } }
@@ -20,5 +21,16 @@ public class GameManager : Singleton<GameManager>
 
     }
 
+
+    public void AddState(IStateUpdate state)
+    {
+        stateUpdates.Add(state);
+    }
+
+    public void Play()
+    {
+        foreach (var state in stateUpdates)
+            state.Play();
+    }
 
 }

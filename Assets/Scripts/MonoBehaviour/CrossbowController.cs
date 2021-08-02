@@ -19,21 +19,26 @@ public class CrossbowController : MonoBehaviour
     [SerializeField]
     private LayerMask layerMask;
 
+    private PlayerController player;
+
     private float downPositionY;
 
     private bool isPlungerTarget;
     private bool isDown;
 
-
+    private bool isShoot;
+    public bool IsShoot { get { return isShoot; } set { isShoot = value; } }
 
     private void Start()
     {
+        player = GetComponentInParent<PlayerController>();
+
         obiEndTransform.localPosition = new Vector3(-1f, 0f, 0f);
     }
 
     private void Update()
     {
-        if (GameManager.Instance.IsPlay)
+        if (!isShoot || player.IsDeath)
             return;
 
 
