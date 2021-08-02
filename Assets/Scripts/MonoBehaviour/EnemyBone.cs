@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBone : MonoBehaviour
+public class EnemyBone : MonoBehaviour, IEnemyBone
 {
     [SerializeField]
-    private List<Rigidbody> neighbors = new List<Rigidbody>();
+    private List<EnemyBone> neighbors = new List<EnemyBone>();
 
     [SerializeField]
     private string boneName = string.Empty;
@@ -18,6 +18,8 @@ public class EnemyBone : MonoBehaviour
     {
         boneParent = GameObject.FindWithTag("boneParent").transform;
         controller = GetComponentInParent<EnemyController>();
+
+        controller.AddBone(this);
     }
 
     public void SetAnimationHit()
@@ -31,13 +33,22 @@ public class EnemyBone : MonoBehaviour
         if (boneName != string.Empty)
             controller.SetAnimation(boneName);
 
+
         foreach (var neighbor in neighbors)
         {
-            neighbor.transform.parent = boneParent;
-            neighbor.isKinematic = false;
+            if(controller.HasBone(neighbor))
+            {
+                neighbor.transform.parent = boneParent;
+                neighbor.GetComponent<Rigidbody>().isKinematic = false;
+
+                controller.RemoveBone(neighbor);
+            }
+           
         }
     }
 
-
-
+    public void DestroyBone()
+    {
+        Destroy(gameObject, 2f);
+    }
 }

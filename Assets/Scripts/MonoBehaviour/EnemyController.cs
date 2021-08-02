@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private float speed = 5f;
 
+    private List<IEnemyBone> bones = new List<IEnemyBone>();
+
     private PlayerController playerController;
 
     private Level level;
@@ -80,5 +82,22 @@ public class EnemyController : MonoBehaviour
             m.color = Color.cyan;
     }
 
+
+    public void AddBone(IEnemyBone bone)
+    {
+        bones.Add(bone);
+    }
+
+    public void RemoveBone(IEnemyBone bone)
+    {
+        bone.DestroyBone();
+        bones.Remove(bone);
+
+    }
+
+    public bool HasBone(IEnemyBone bone)
+    {
+        return bones.Contains(bone);
+    }
 
 }
