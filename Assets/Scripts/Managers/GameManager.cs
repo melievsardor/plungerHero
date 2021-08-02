@@ -16,7 +16,7 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
 
 
-        DontDestroyOnLoad(this);
+       // DontDestroyOnLoad(this);
 
 
     }
@@ -33,4 +33,15 @@ public class GameManager : Singleton<GameManager>
             state.Play();
     }
 
+    public void Finish()
+    {
+        foreach (var state in stateUpdates)
+            state.Finish();
+    }
+
+    public void GameOver()
+    {
+        foreach (var state in stateUpdates)
+            state.GameOver();
+    }
 }

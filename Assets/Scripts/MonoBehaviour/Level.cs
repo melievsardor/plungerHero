@@ -6,8 +6,15 @@ public class Level : MonoBehaviour
 {
     private Dictionary<int, List<EnemyController>> enemies = new Dictionary<int, List<EnemyController>>();
 
+    private PlayerController playerController;
+
+    private int currentIndex;
+    private int enemyDeathCount;
+
     private void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
+
         var grounds = GameObject.FindGameObjectsWithTag("ground");
 
         int i = 0;
@@ -22,8 +29,25 @@ public class Level : MonoBehaviour
 
     public void SetActiveGround(int index)
     {
+        currentIndex = index;
+
         foreach (var enemy in enemies[index])
             enemy.SetPlay();
+    }
+
+    public void NextGround()
+    {
+        if(currentIndex < enemies.Count)
+        {
+            enemyDeathCount++;
+
+            if (enemyDeathCount == enemies[currentIndex].Count)
+            {
+                playerController.NextGround();
+                enemyDeathCount = 0;
+            }
+        }
+
     }
 
 }

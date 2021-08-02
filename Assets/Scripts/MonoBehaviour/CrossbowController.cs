@@ -100,7 +100,6 @@ public class CrossbowController : MonoBehaviour
                 isPlungerTarget = false;
                 isDown = false;
             }
-            Debug.Log(downPositionY + " | " + upPositionY);
         }
 
         //if (Input.GetMouseButtonDown(0))

@@ -10,9 +10,10 @@ public class EnemyController : MonoBehaviour
 
     private PlayerController playerController;
 
+    private Level level;
+
     private Animator animator;
 
-    
     private Material[] materials;
 
     private bool isPlay = false;
@@ -24,6 +25,8 @@ public class EnemyController : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         
         animator = GetComponent<Animator>();
+
+        level = FindObjectOfType<Level>();
 
         var sphereCollider = GetComponentsInChildren<SphereCollider>();
         materials = new Material[sphereCollider.Length];
@@ -37,6 +40,12 @@ public class EnemyController : MonoBehaviour
     public void SetAnimation(string triggerName)
     {
         animator.SetTrigger(triggerName);
+
+        if (triggerName == "dying")
+        {
+            isDeath = true;
+            level.NextGround();
+        }
     }
 
     public void SetPlay()
@@ -59,7 +68,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (Vector3.Distance(transform.position, playerController.transform.position) < 2.5f)
         {
-            playerController.IsDeath = true;
+            playerController.SetDeath();
             isPlay = false;
             SetAnimation("idle");
         }
