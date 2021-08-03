@@ -6,6 +6,9 @@ public class Level : MonoBehaviour
 {
     private Dictionary<int, List<EnemyController>> enemies = new Dictionary<int, List<EnemyController>>();
 
+    [SerializeField]
+    private List<GameObject> grounds = new List<GameObject>();
+
     private PlayerController playerController;
 
     private int currentIndex;
@@ -15,14 +18,10 @@ public class Level : MonoBehaviour
     {
         playerController = FindObjectOfType<PlayerController>();
 
-        var grounds = GameObject.FindGameObjectsWithTag("ground");
-
-        int i = 0;
-        foreach(var ground in grounds)
+        for(int i = 0; i < grounds.Count; i++)
         {
             enemies[i] = new List<EnemyController>();
-            enemies[i].AddRange(ground.GetComponentsInChildren<EnemyController>());
-            i++;
+            enemies[i].AddRange(grounds[i].GetComponentsInChildren<EnemyController>());
         }
     }
 

@@ -51,7 +51,8 @@ public class PlayerController : MonoBehaviour, IStateUpdate
         }
         else if(pointIndex == 10)
         {
-            transform.DORotate(new Vector3(0f, 90f, 0f), 2f).SetDelay(2f);
+            transform.DORotate(new Vector3(0f, 90f, 0f), 4f);
+            Camera.main.transform.DORotate(new Vector3(0f, 90f, 0f), 4f);
             //transform.DOMove(points[pointIndex++].position, 2f).SetDelay(2f);
             transform.DOMove(points[pointIndex++].position, 2f).SetDelay(4f).OnComplete(PlayEnemy);
         }
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour, IStateUpdate
             transform.DOJump(points[pointIndex++].position, 4f, 1, 2f).SetEase(Ease.Flash).SetDelay(2f);
             transform.DOMove(points[pointIndex++].position, 2f).SetDelay(4f).OnComplete(PlayEnemy);
         }
+
     }
 
 

@@ -26,6 +26,7 @@ public class CrossbowController : MonoBehaviour
     private bool isPlungerTarget;
     private bool isDown;
 
+
     private bool isShoot;
     public bool IsShoot { get { return isShoot; } set { isShoot = value; } }
 
@@ -38,6 +39,7 @@ public class CrossbowController : MonoBehaviour
 
     private void Update()
     {
+
         if (!isShoot || player.IsDeath)
             return;
 
@@ -46,34 +48,12 @@ public class CrossbowController : MonoBehaviour
         {
             downPositionY = Input.mousePosition.y;
 
+            if (isPlungerTarget || isDown)
+                return;
+
             isDown = true;
-        }
 
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit raycastHit;
-
-        if (Physics.Raycast(ray, out raycastHit, layerMask))
-        {
-            //raycastHit.rigidbody.isKinematic = false;
-
-            if(!isPlungerTarget)
-            {
-                if (isDown)
-                {
-                    plungerTransform.parent = raycastHit.transform;
-
-                    var bone = plungerTransform.parent.GetComponent<EnemyBone>();
-
-                    if(bone != null)
-                        bone.SetAnimationHit();
-
-                    plungerTransform.localPosition = new Vector3(0f, 0f, 0.5f);
-                    isPlungerTarget = true;
-                }
-            }
-            
-
+            ArrowForward();
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -81,59 +61,107 @@ public class CrossbowController : MonoBehaviour
             if (!isPlungerTarget)
                 return;
 
-            float upPositionY = Input.mousePosition.y;
-
-            if (downPositionY - upPositionY >= 100f)
-            {
-
-                var eneyBone = plungerTransform.parent.GetComponent<EnemyBone>();
-
-                if (eneyBone != null)
-                    eneyBone.SetScattter();
-
-                plungerTransform.parent = plungerParentTransform;
-
-                plungerTransform.localPosition = Vector3.zero;
-
-                plungerTransform.localEulerAngles = Vector3.zero;
-
-                isPlungerTarget = false;
-                isDown = false;
-            }
+            ArrawBackward();
         }
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    downPositionY = Input.mousePosition.y;
 
-        //    if (!isPlungerTarget)
-        //    {
-        //        //Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+    }
 
-        //        if (Physics.Raycast(ray, out raycastHit, layerMask))
-        //        {
-        //            var temp = raycastHit.point;
+    private void ArrowForward()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
-        //            Animator animator = raycastHit.transform.GetComponentInParent<Animator>();
+        RaycastHit raycastHit;
 
-        //            if(animator != null)
-        //            {
-        //                animator.StopPlayback();
-        //            }
+        if (Physics.Raycast(ray, out raycastHit, 15f, layerMask))
+        {
+            if(raycastHit.transform.tag == "selectable")
+            {
+                plungerTransform.parent = raycastHit.transform;
 
-        //            temp.x = -temp.x;
-        //            temp.z = -temp.z;
-        //            plungerTransform.localPosition = temp;
+                var bone = plungerTransform.parent.GetComponent<EnemyBone>();
 
-        //            isPlungerTarget = true;
-        //        }
-        //    }
+                if (bone != null && !bone.IsDestroy)
+                {
+                    bone.SetAnimationHit();
 
-        //}
+                    plungerTransform.localPosition = new Vector3(0f, 0f, 0.5f);
+                    isPlungerTarget = true;
+                }
+            }
 
+            isDown = false;
+        }
+        else
+        {
+            EmptySpace();
+        }
+    }
 
+    private void ArrawBackward()
+    {
+        float upPositionY = Input.mousePosition.y;
 
+        if (downPositionY - upPositionY >= 100f)
+        {
 
+            var eneyBone = plungerTransform.parent.GetComponent<EnemyBone>();
+
+            if (eneyBone != null)
+                eneyBone.SetScattter();
+
+            plungerTransform.parent = plungerParentTransform;
+
+            plungerTransform.localPosition = Vector3.zero;
+
+            plungerTransform.localEulerAngles = Vector3.zero;
+
+            isPlungerTarget = false;
+        }
+
+        isDown = false;
+    }
+
+    private void EmptySpace()
+    {
+        var temp = mainCamera.ScreenToViewportPoint(Input.mousePosition);
+
+        temp.z = -1f;
+
+        if (temp.x < 0.45f)
+        {
+            temp.x = 1 - temp.x;
+        }
+        else if (temp.x >= 0.45f && temp.x <= 0.55f)
+        {
+            temp.x = temp.x - 0.5f;
+        }
+        else
+        {
+            temp.x = -temp.x;
+        }
+
+        if (temp.y >= 0.45f && temp.y <= 0.55f)
+        {
+            temp.y = 1f;
+        }
+        else if (temp.y > 0.55f)
+        {
+            temp.y = temp.y * 2f;
+        }
+
+        plungerTransform.localPosition = new Vector3(temp.x, temp.y, temp.z);
+
+        StartCoroutine(WaitArrowBackward());
+    }
+
+    private IEnumerator WaitArrowBackward()
+    {
+        yield return new WaitForSeconds(0.3f);
+
+        plungerTransform.localPosition = Vector3.zero;
+
+        isDown = false;
     }
 
 }

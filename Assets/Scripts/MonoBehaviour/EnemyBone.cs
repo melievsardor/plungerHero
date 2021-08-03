@@ -14,6 +14,9 @@ public class EnemyBone : MonoBehaviour, IEnemyBone
 
     private Transform boneParent;
 
+    private bool isDestroy;
+    public bool IsDestroy { get { return isDestroy; } set { isDestroy = value; } }
+
     private void Start()
     {
         boneParent = GameObject.FindWithTag("boneParent").transform;
@@ -40,6 +43,8 @@ public class EnemyBone : MonoBehaviour, IEnemyBone
             {
                 neighbor.transform.parent = boneParent;
                 neighbor.GetComponent<Rigidbody>().isKinematic = false;
+
+                neighbor.IsDestroy = true;
 
                 controller.RemoveBone(neighbor);
             }

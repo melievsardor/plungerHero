@@ -6,6 +6,8 @@ TagManager:
   tags:
   - boneParent
   - ground
+  - enemy
+  - selectable
   layers:
   - Default
   - TransparentFX
